@@ -1,0 +1,40 @@
+#container{
+	width:800px;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:11px;
+	margin-bottom:21px;
+}
+#head{
+	height:150px;
+	background-color:#000;
+	font:"Arial";
+	text-align:center;
+
+	color:#FFF;
+}
+
+#submenu{
+	height:10px;
+	width:800px;
+	background-color:#000;
+}
+#body{
+	height:600px;
+	width:800px;
+	background-color:#FFF;
+}
+#body .display{
+	padding-top:50px;
+	margin-left:100px;
+	margin-right:100px;
+}
+#foot{
+	height:80px;
+	width:800px;
+	background-color:#000;
+	float:none;
+	clear:both;
+}
+	
