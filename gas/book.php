@@ -95,6 +95,8 @@ body {
 <p>
   <i>Associated with Nepal Gas Limited</i></p>
 </div>
+<a href="login.php" >Login</a>
+<a href="form.html">Sign UP</a>
 <div id="menu">
 	<ul>
 		<li><a href="index.php"><strong>Home</strong></a></li>

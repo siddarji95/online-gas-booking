@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link href="css2/homepage.css" rel="stylesheet" type="text/css" />
+        <link href="css2/menu.css" rel="stylesheet" type="text/css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Untitled Document</title>
+       
+        
+        <script language="javascript">
+			function showDetails(id) {
+				//alert('http://localhost/gas/detailDetail.php?id=' + id);	
+				document.location.href = 'http://localhost/gas/book.php?id=' + id;	
+			}
+			
+			function hightlight(obj) {
+				obj.setAttribute("style", "height: 22px; text-decoration: underline; cursor: pointer; color: blue;");
+			}
+			
+			function unhightlight(obj) {
+				obj.setAttribute("style", "height: 22px; text-decoration: none; color: black;");
+			}
+		</script>
+    </head>
+	
+    <body bgcolor="#000000">
+        <div id="container">
+		<div id="nav">
+			<ul>
+				<li><a href="login.html">Log In</a></li>
+				<li><a href="form.html">Sign Up</a></li>
+			
+			</ul>	
+		</div>
+            <div id="head">
+                <h1>BookGas.in</h1>
+                <p><i>Online Gas booking website</i></p>
+                <p>
+                  <i>Associated with indian Gas Limited</i>
+                </p>
+            </div>
+            
+		
+            <div id="menu">
+                <ul>
+                    <li><a href="index.php"><strong>Home</strong></a></li>
+                    <li><a href="book.php"><strong>Book</strong></a></li>
+                    
+                    <li><a href="about_us.html"><strong>About Us</strong></a></li>    
+                </ul>
+            </div>
+			<div id="body">
+			<p>
+We can book your gas for which you are paying more money. <br>
+Also it is easier to book gas with online net banking on cash on delivery option is also available website.<br>
+customer can book available gases and customer can cheak online prices of gas.<br>
+Better affordability of LPG connection for customers by providing access subsidization towards security deposit of cylinder.<br>
+
+             </p>
+             </div>
+</div>
+</body>
+</html>
+			

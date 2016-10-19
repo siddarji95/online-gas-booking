@@ -107,12 +107,14 @@ $result = mysql_query ($query);
     <body bgcolor="#000000">
         <div id="container">
             <div id="head">
-                <h1>gas.com</h1>
+                <h1>BookYourgas.com</h1>
                 <p><i>Online Gas booking website</i></p>
                 <p>
-                  <i>Associated with Nepal Gas Limited</i>
+                  <i>Associated with Indian Gas Limited</i>
                 </p>
             </div>
+			<a href="login.php" >Login</a>
+<a href="form.html">Sign UP</a>
             
             <div id="menu">
                 <ul>
