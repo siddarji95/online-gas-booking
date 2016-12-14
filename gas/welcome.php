@@ -1,9 +1,28 @@
+<?php
+session_start();
 
+$user_check=123;
+$con=mysql_connect("localhost","root","");
+
+if(!$con) 
+	{
+		die("could not connect" .mysql_error());
+	}
+mysql_select_db("db_gas",$con);
+
+
+$query = mysql_query("select d_id, company_name, d_address from dealer");
+
+  $user_check = $_SESSION['login_user'];
+   
+   
+  
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Safatytips</title>
+  <title>Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css2/homepage.css" rel="stylesheet" type="text/css" />
@@ -51,22 +70,8 @@ background-image: url("images/2.jpg");
     }
   }
   </style>
-      <script language="javascript">
-			function showDetails(id) {
-				//alert('http://localhost/gas/detailDetail.php?id=' + id);	
-				document.location.href = 'http://localhost/gas/book.php?id=' + id;	
-			}
-			
-			function hightlight(obj) {
-				obj.setAttribute("style", "height: 22px; text-decoration: underline; cursor: pointer; color: blue;");
-			}
-			
-			function unhightlight(obj) {
-				obj.setAttribute("style", "height: 22px; text-decoration: none; color: black;");
-			}
-		</script>
 </head>
-<body>
+<body >
 <div class='name'>
    <h1 align='center'>BookYourGas.com</h1>
                 <p align='center'><i>Online Gas booking website</i></p>
@@ -86,14 +91,13 @@ background-image: url("images/2.jpg");
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="index.php">Home</a></li>
+        <li class="active"><a href="index.php">Home</a></li>
         <li><a href="book.php">Book</a></li>
-        <li class="active"><a href="safetytips.php">Safatytips</a></li>
+        <li><a href="safetytips.php">Safatytips</a></li>
         <li><a href="contact.php">Contact</a></li>
       </ul>
-	   <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right">
 	  <?php 
-	  session_start();
 	   if(!isset($_SESSION['login_user'])){
       echo '<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
    }
@@ -103,42 +107,39 @@ else
 	
 	
 }
-?>
+	  
+	  
+	  ?>
         
       </ul>
-      
     </div>
   </div>
 </nav>
 
 
-<div class="container">
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="images/safaty1.jpg" alt="Chania" width="460" height="345">
+        <img src="images/1.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3>Free Registration</h3>
+          <p>You can apply for book any gas you want. Registration is free and always be. </p>
+        </div>      
       </div>
 
       <div class="item">
-        <img src="images/safaty2.jpg" alt="Chania" width="460" height="345">
-      </div>
-    
-      <div class="item">
-        <img src="images/safaty3.jpg" alt="Flower" width="460" height="345">
-      </div>
-
-      <div class="item">
-        <img src="images/safaty4.jpg" alt="Flower" width="460" height="345">
+        <img src="images/2.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3>No need to stand in queues.</h3>
+          <p>Users can book their gas online any time any where.</p>
+        </div>      
       </div>
     </div>
 
@@ -151,9 +152,60 @@ else
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+</div>
+  
+<div class="container text-center">    
+  <h3>Our Gas Partner</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="images/hp.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>HP Gas</p>
+    </div>
+    <div class="col-sm-4"> 
+      <img src="images/bharat gas.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Bharat Gas</p>    
+    </div>
+	 <div class="col-sm-4"> 
+      <img src="images/bharat gas.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Bharat Gas</p>    
+    </div>
+    
+    </div>
+  </div>
+</div><br>
+
+<footer class="container-fluid text-center">
+ <div class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Mumbai, Maharastra</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +919969319254</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> siddharth.darji@somaiya.edu</p> 
+    </div>
+    <div class="col-sm-7">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+		<form action="feedback.php" method="post">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comment" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+		  </form>
+        </div>
+      </div> 
+    </div>
   </div>
 </div>
 
+</footer>
 
 </body>
 </html>

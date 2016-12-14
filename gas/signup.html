@@ -1,0 +1,62 @@
+
+<html>
+<head>
+	<title>Registration</title>
+	<link href="css2/homepage.css" rel="stylesheet" type="text/css" />
+        <link href="css2/menu.css" rel="stylesheet" type="text/css" />
+			<link href="css2/normalize.css" rel="stylesheet" type="text/css" />
+				<link href="css2/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+ <div id="container">
+            <div id="head">
+                <h1>BookYourGas.com</h1>
+                <p><i>Online Gas booking website</i></p>
+                <p>
+                  <i>Associated with Indian Gas Limited</i>
+                </p>
+            </div>
+
+			<p><b><i><h2> Create an account </h2></i></b></p>
+                <p> <h3>It's free and always will be.</h3></p>
+<form id='register' action='signup.php' method='post'
+    accept-charset='UTF-8'>
+<fieldset >
+<legend>Register</legend>
+            *Username:
+			<input type="text" name="username" required><br><br>
+			*Password:          
+     		<input type = "password" name = "password" required><br>
+			<a href="password.html">Forget password?</a><br><br>
+            *First Name: 
+			<input type = "text" name = "fname" required><br><br>
+			*Last Name:
+			<input type = "text" name = "lname" required><br><br>
+			*Email-id:
+			<input type = "email" name = "email" required><br><br>
+
+                        *Birthday:
+                        <input type="date" name="dob" required><br><br>
+                         
+                        *Gender:
+                        <input type="radio" name="gender" value="male" checked> Male
+                        <input type="radio" name="gender" value="female"> Female<br>
+                       *Gas number:
+                        <input type = "text" name = "gas_no" required><br><br>
+                        *Gas company:
+			<select name="c_name" >
+			<option required> --Select gas-- </option>
+			<option value = "HP"> HP gas</option>
+			<option value = "BH"> Bharat gas </option>
+			
+			</select><br><br>
+		
+  
+                        Address: <br>
+			<textarea rows="5" cols="50">
+			</textarea>
+                        <input type = "submit" value = "Submit">
+		</form>
+</fieldset>
+</form>

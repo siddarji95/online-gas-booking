@@ -1,38 +1,79 @@
 <?php
 session_start();
 
-//$_SESSION['dealerId'] = $_GET['id'];	
+
 $con=mysql_connect("localhost","root","");
 
 if(!$con) 
 	{
 		die("could not connect" .mysql_error());
 	}
-
 mysql_select_db("db_gas",$con);
+
 
 $query = mysql_query("select d_id, company_name, d_address from dealer");
 
+  $user_check = $_SESSION['login_user'];
+   
+   
+   if(!isset($_SESSION['login_user'])){
+      header("location:login.html");
+   }
+
+
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
- <link href="css2/homepage.css" rel="stylesheet" type="text/css" />
- <link href="css2/menu.css" rel="stylesheet" type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
--->
-</style>
-<script>
+  <title>Book</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css2/homepage.css" rel="stylesheet" type="text/css" />
+    <link href="css2/menu.css" rel="stylesheet" type="text/css" />
+		
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  
+  <style>
+    .name{
+color: blue;
+	background-image: url("images/1.jpg");
+	
+	
+	}
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  </style>
+     <script>
 	var obj;
 	
 	function SetDealerAddress(obj) {
@@ -77,7 +118,7 @@ body {
 			return false;
 		}
 		
-		if(objCphone.value == "") {
+		if(objCphone.value) {
 			alert("Please provide number for booking.");
 			obj = objCphone;
 			return false;
@@ -87,41 +128,64 @@ body {
 	}
 </script>
 </head>
-<body bgcolor="#000000">
-<div id="container">
-<div id="head">
-<h1>BookYourGas.com</h1>
-<p><i>Online Gas booking website</i></p>
-<p>
-  <i>Associated with Nepal Gas Limited</i></p>
-</div>
-<a href="login.php" >Login</a>
-<a href="form.html">Sign UP</a>
-<div id="menu">
-	<ul>
-		<li><a href="index.php"><strong>Home</strong></a></li>
-		<li><a href="book.php"><strong>Book</strong></a></li>
-		<li><strong><a href="safetytips.php">Safety Tips</a></strong></li>
-		<li><a href="#"><strong>About Us</strong></a></li>
-	</ul>
-</div>
-<div id="submenu"></div>
-<div id="body"><center>
-<form id="bookingForm" action="booking.php" method="post">
+<body>
+<div class='name'>
+   <h1 align='center'>BookYourGas.com</h1>
+                <p align='center'><i>Online Gas booking website</i></p>
+                <p align='center'>
+                  <i>Associated with Indian Gas Limited</i>
+                </p>
+				<div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="index.php">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.php">Home</a></li>
+        <li class="active"><a href="book.php">Book</a></li>
+        <li><a href="safetytips.php">Safatytips</a></li>
+        <li><a href="contact.php">Contact</a></li>
+      </ul>
+	   <ul class="nav navbar-nav navbar-right">
+	  <?php 
+	   if(!isset($_SESSION['login_user'])){
+      echo '<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+   }
+else
+{
+	echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+	
+}
+?>
+        
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+<form id="bookingForm" action="booking.php" method="post" onSubmit="ValidForm()">
                         <p>&nbsp;</p>
         <fieldset>
           <legend><font color = "black"> <strong>BOOK</strong></font></legend> 
+		  To see available gases click <a style="color:red;" href="available.php">here</a><br><br>
 	<table width="508" height="267" cellpadding="0" cellspacing="0">
                             <tbody>
 							
 							<tr>
-								<td width="169" height="33"><label>Name </label></td><td width="289"><input type="text" id="name" name="name" class="txtfield" placeholder="Enter Your Name" width="250" /></td></tr><br />
+								<td width="169" height="33"><label>Name </label></td><td width="289"><input type="text" id="name" name="name" class="txtfield" placeholder="Enter Your Name" width="250" required /></td></tr><br />
 							<tr>
-								<td height="31"><label>Address </label></td><td><input type="text" id="Caddress" name="address" class="txtfield" placeholder="Enter your Address"/ width="250"></td></tr>
+								<td height="31"><label>Address </label></td><td><input type="text" id="Caddress" name="address" class="txtfield" placeholder="Enter your Address" required></td></tr>
                             <tr>
-								<td height="42"><label>Citizenship Number</label></td><td><input type="text" id="Cnumber"name="Cnumber" class="txtfield" placeholder="Enter Your Citizenship Number" width="250"/></td></tr>
+								<td height="42"><label>Citizenship Number</label></td><td><input type="text" id="Cnumber"name="Cnumber" class="txtfield" placeholder="Enter Your Citizenship Number" required></td></tr>
 							<tr>
-								<td height="31"><label>Phone No. </label></td><td><input type="text" id="Cphone" name="pnumber" class="txtfield" placeholder="Enter your Phone Number" width="250" /></td></tr>
+								<td height="31"><label>Phone No. </label></td><td><input type="text" id="Cphone" name="pnumber" class="txtfield" placeholder="Enter your Phone Number" required></td></tr>
                            
 							<tr>
 								<td height='31'>
@@ -152,10 +216,8 @@ body {
 							<tr><td colspan="2"><input type="submit" value="Submit" /></td></tr> <!--<input type="button" value="Submit" onClick="javascript: SubmitForm();" />-->
 							</tbody>
 		</table></fieldset></form></center>
-</div>
 
-</div>
-<div id="foot"></div>
-</div>
+
+
 </body>
 </html>

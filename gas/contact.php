@@ -1,9 +1,8 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Safatytips</title>
+  <title>Contact</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css2/homepage.css" rel="stylesheet" type="text/css" />
@@ -22,9 +21,6 @@
     .name{
 color: blue;
 background-image: url("images/2.jpg");
-	
-	
-	
 	}
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -88,10 +84,10 @@ background-image: url("images/2.jpg");
       <ul class="nav navbar-nav">
         <li><a href="index.php">Home</a></li>
         <li><a href="book.php">Book</a></li>
-        <li class="active"><a href="safetytips.php">Safatytips</a></li>
-        <li><a href="contact.php">Contact</a></li>
+        <li><a href="safetytips.php">Safatytips</a></li>
+        <li class="active"><a href="contact.html">Contact</a></li>
       </ul>
-	   <ul class="nav navbar-nav navbar-right">
+	     <ul class="nav navbar-nav navbar-right">
 	  <?php 
 	  session_start();
 	   if(!isset($_SESSION['login_user'])){
@@ -106,54 +102,44 @@ else
 ?>
         
       </ul>
-      
     </div>
   </div>
 </nav>
 
 
-<div class="container">
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="images/safaty1.jpg" alt="Chania" width="460" height="345">
-      </div>
-
-      <div class="item">
-        <img src="images/safaty2.jpg" alt="Chania" width="460" height="345">
-      </div>
-    
-      <div class="item">
-        <img src="images/safaty3.jpg" alt="Flower" width="460" height="345">
-      </div>
-
-      <div class="item">
-        <img src="images/safaty4.jpg" alt="Flower" width="460" height="345">
-      </div>
+<footer class="container-fluid text-center">
+  
+ <div class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Mumbai, Maharastra</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +919969319254</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> siddharth.darji@somaiya.edu</p> 
     </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <div class="col-sm-7">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+		<form action="feedback.php" method="post">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comment" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+		  </form>
+        </div>
+      </div> 
+    </div>
   </div>
 </div>
 
+</footer>
 
 </body>
 </html>
