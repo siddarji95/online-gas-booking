@@ -1,0 +1,30 @@
+#container{
+	width:800px;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+}
+#head{
+	height:150px;
+	background-color:#000;
+	font:"Arial";
+	text-align:center;
+
+	color:#FFF;
+}
+
+#submenu{
+	height:10px;
+	width:800px;
+	background-color:#000;
+}
+
+
+#foot{
+	height:80px;
+	width:800px;
+	background-color:#000;
+	float:none;
+	clear:both;
+}
+	

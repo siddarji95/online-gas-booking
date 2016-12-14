@@ -1,0 +1,33 @@
+#menu{
+	height:60px;
+	width:800px;
+	background-color:#666;
+}
+#menu ul{
+	margin:0;
+	padding:0;
+}
+
+#menu li{
+	list-style-type:none;
+	float:left;
+	display:block;
+	width:150px;
+	height:60px;
+	text-align:center;
+	line-height:55px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:20px;
+	
+}
+#menu li a{
+	text-decoration:none;
+	color:#FFF;
+}
+#menu li:Hover{
+	background-color:#999;
+}
+#menu li:Hover a{
+	display:block;
+	color:#000;
+}
